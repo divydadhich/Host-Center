@@ -45,10 +45,36 @@ export default function HostCenter() {
   const nav = useNavigate();
 
   return (
-    <div className="max-w-[430px] mx-auto min-h-screen bg-indigo-50">
+    <div className="max-w-[430px] mx-auto min-h-screen ">
+      {/* ================= HEADER ================= */}
+<div className="h-14 px-4 flex items-center justify-between text-white bg-gradient-to-b from-[#1b1b3b] to-[#141433]">
+  
+  {/* Back */}
+  <button
+    onClick={() => nav(-1)}
+    className="text-2xl font-light"
+  >
+    ‹
+  </button>
+
+  {/* Title */}
+  <h1 className="text-base font-semibold tracking-wide">
+    Host Center
+  </h1>
+
+  {/* Close */}
+  <button
+    onClick={() => nav("/")}
+    className="text-xl font-light"
+  >
+    ✕
+  </button>
+</div>
+
 
       {/* PROFILE */}
       <div className="p-4">
+        
         <Card>
           <div className="flex items-center gap-3">
             <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
@@ -121,7 +147,7 @@ export default function HostCenter() {
       <div className="p-4 space-y-4">
 
         <Card>
-          <div className="flex justify-between">
+          <div className="flex ">
             <IconButton
               label="Wallet"
               color="bg-orange-400"
@@ -161,7 +187,7 @@ export default function HostCenter() {
         </Card>
 
         <Card>
-          <div className="flex gap-8">
+          <div className="flex ">
             <IconButton
               label="Host Reward"
               color="bg-orange-400"
