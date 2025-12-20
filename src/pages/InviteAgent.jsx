@@ -13,11 +13,11 @@ export default function Invite() {
       <div className="px-5 pt-6 space-y-6">
 
         {/* STEPS */}
-        <div className="space-y-3 text-gray-800 text-base font-medium">
+        {/* <div className="space-y-3 text-gray-800 text-base font-medium">
           <p>1、Download 4Party app.</p>
           <p>2、My Page (Host Center).</p>
           <p>3、Enter the team ID to apply for joining.</p>
-        </div>
+        </div> */}
 
         {/* FORM CARD */}
         <div className="bg-white rounded-2xl p-5 shadow-sm">
@@ -55,7 +55,7 @@ export default function Invite() {
               w-full
               h-12
               rounded-full
-              bg-purple-600
+              bg-[#5C039B]
               text-white
               text-lg
               font-medium

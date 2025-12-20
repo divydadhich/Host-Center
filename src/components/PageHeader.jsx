@@ -1,17 +1,40 @@
 import { useNavigate } from "react-router-dom";
 
 export default function PageHeader({ title }) {
-  const nav = useNavigate();
+  const navigate = useNavigate();
 
   return (
-    <header className="h-14 bg-indigo-950 text-white flex items-center justify-center relative">
+    <header
+      className="
+        h-18 
+        bg-gradient-to-b from-indigo-950 to-indigo-900
+        text-white
+        flex
+        items-center
+        justify-center
+        relative
+      "
+    >
+      {/* BACK */}
       <button
-        onClick={() => nav(-1)}
-        className="absolute left-4 text-xl"
+        onClick={() => navigate(-1)}
+        className="absolute left-4 text-3xl active:opacity-70"
       >
         ‹
       </button>
-      <span className="text-lg font-semibold">{title}</span>
+
+      {/* TITLE */}
+      <h1 className="text-xl font-semibold tracking-wide">
+        {title}
+      </h1>
+
+      {/* CLOSE */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute right-4 text-2xl active:opacity-70"
+      >
+        ✕
+      </button>
     </header>
   );
 }

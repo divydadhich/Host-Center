@@ -1,218 +1,100 @@
 import { useNavigate } from "react-router-dom";
-import P from "../assets/avatar.jpeg"
-import hero from "../assets/bg.jpg"
-
-const CoinsIcon = () => (
-    <svg
-      width="32"
-      height="32"
-      viewBox="0 0 24 24"
-      fill="none"
-    >
-      {/* Coins */}
-      <ellipse cx="12" cy="17" rx="7" ry="3" fill="#FFD700" />
-      <ellipse cx="12" cy="14" rx="7" ry="3" fill="#FFC107" />
-      <ellipse cx="12" cy="11" rx="7" ry="3" fill="#FFB300" />
-  
-      {/* Gift */}
-      <rect x="3" y="6" width="6" height="5" rx="1" fill="#8B5CF6" />
-      <rect x="5.7" y="6" width="1" height="5" fill="#FDE68A" />
-      <rect x="3" y="8" width="6" height="1" fill="#FDE68A" />
-    </svg>
-  );
-  
-const Card = ({ children }) => (
-  <div className="bg-white rounded-2xl shadow-sm p-4">
-    {children}
-  </div>
-);
-
-const IconButton = ({ label, color, onClick, icon }) => (
-  <button
-    onClick={onClick}
-    className="flex flex-col items-center gap-2 w-1/3"
-  >
-    <div
-      className={`w-14 h-14 rounded-2xl flex items-center justify-center ${color}`}
-    >
-      {icon}
-    </div>
-    <span className="text-sm font-medium text-gray-700">{label}</span>
-  </button>
-);
+import avatar from "../assets/avatar.jpeg";
+import PageHeader from "../components/PageHeader";
 
 export default function HostCenter() {
   const nav = useNavigate();
 
   return (
-    <div className="max-w-[430px] mx-auto min-h-screen ">
-      {/* ================= HEADER ================= */}
-<div className="h-14 px-4 flex items-center justify-between text-white bg-gradient-to-b from-[#1b1b3b] to-[#141433]">
-  
-  {/* Back */}
-  <button
-    onClick={() => nav(-1)}
-    className="text-2xl font-light"
-  >
-    ‹
-  </button>
+    <div className="min-h-screen bg-white flex justify-center">
+      <div className="w-full max-w-[430px] min-h-screen pb-8">
 
-  {/* Title */}
-  <h1 className="text-base font-semibold tracking-wide">
-    Host Center
-  </h1>
+        {/* HEADER */}
+        <PageHeader title="Invite Members" />
 
-  {/* Close */}
-  <button
-    onClick={() => nav("/")}
-    className="text-xl font-light"
-  >
-    ✕
-  </button>
-</div>
+        {/* CONTENT WRAPPER */}
+        <div className="px-4">
 
-
-      {/* PROFILE */}
-      <div className="p-4">
-        
-        <Card>
-          <div className="flex items-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-xl">
-            <img
-    src={P}
-    alt="Profile"
-    className="w-full h-full object-cover"
-  />            </div>
-
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="font-semibold">PROFESSOR 🤓</h3>
-                <span className="text-xs bg-pink-500 text-white px-2 py-0.5 rounded-full">
-                  Admin
-                </span>
-              </div>
-              <p className="text-sm text-gray-500">ID : 2469315</p>
+          {/* ================= PROFILE CARD ================= */}
+          <div className="mt-4 bg-white/40 backdrop-blur-xl rounded-3xl p-4 flex items-center gap-4 shadow-lg">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden bg-white">
+              <img
+                src={avatar}
+                alt="profile"
+                className="w-full h-full object-cover"
+              />
             </div>
+
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-gray-800 text-base sm:text-lg truncate">
+                HT = Heaven place
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600">
+                ID: 1
+              </p>
+            </div>
+
+            <span className="px-2 py-1 text-[10px] sm:text-xs rounded-full bg-orange-400 text-white">
+              ADMIN
+            </span>
           </div>
-        </Card>
-      </div>
 
-  {/* RECHARGE BANNER */}
-<div className="px-4 mt-4">
-  <button
-    onClick={() => console.log("Recharge clicked")}
-    className="
-      relative
-      w-full
-      h-24
-      rounded-2xl
-      overflow-hidden
-      flex
-      items-center
-      justify-between
-      px-5
-      text-white
-      shadow-xl
-      active:scale-[0.97]
-      transition-all
-      duration-150
-      bg-cover
-      bg-center
-    "
-    style={{ backgroundImage: `url(${hero})` }}
-  >
-    {/* Dark overlay for readability */}
-    <div className="absolute inset-0 bg-black/20" />
-
-    {/* LEFT CONTENT */}
-    <div className="relative flex items-center gap-4">
-      {/* Icon container */}
-      {/* <div className="w-14 h-14 rounded-xl bg-white/25 backdrop-blur-sm flex items-center justify-center">
-        <CoinsIcon />
-      </div> */}
-
-      <h3 className="text-lg px-18 font-bold tracking-wide">
-        Online coins recharge
-      </h3>
-    </div>
-
-    {/* RIGHT ARROW */}
-    <span className="relative text-3xl font-light">›</span>
-  </button>
-</div>
-
-
-
-      {/* ACTIONS */}
-      <div className="p-4 space-y-4">
-
-        <Card>
-          <div className="flex ">
-            <IconButton
-              label="Wallet"
-              color="bg-orange-400"
-              onClick={() => nav("/wallet")}
-              icon={<WalletIcon />}
-            />
-            <IconButton
-              label="Work"
-              color="bg-blue-400"
-              onClick={() => nav("/work")}
-              icon={<WorkIcon />}
-            />
+          {/* ================= STATS ================= */}
+          <div className="mt-6 grid grid-cols-2 gap-4">
+            <StatCircle title="This month" value="$0" />
+            <StatCircle title="Last month" value="$0" />
           </div>
-        </Card>
 
-        <Card>
-          <div className="flex justify-between">
-            <IconButton
-              label="Apply"
-              color="bg-green-400"
-              onClick={() => nav("/apply")}
-              icon={<UserIcon />}
-            />
-            <IconButton
-              label="Policy"
-              color="bg-emerald-400"
-              onClick={() => nav("/policy")}
-              icon={<DocIcon />}
-            />
-            <IconButton
-              label="Invite"
-              color="bg-pink-400"
-              onClick={() => nav("/invite")}
-              icon={<HeartIcon />}
-            />
+          {/* ================= BALANCE ================= */}
+          <div
+            onClick={() => nav("/wallet")}
+            className="mt-6 bg-white/50 backdrop-blur-xl rounded-2xl p-4 flex items-center gap-4 shadow-md cursor-pointer active:scale-95 transition"
+          >
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-orange-400 flex items-center justify-center text-white text-lg sm:text-xl">
+              💳
+            </div>
+            <span className="font-semibold text-base sm:text-lg text-gray-800">
+              Balance
+            </span>
           </div>
-        </Card>
 
-        <Card>
-          <div className="flex ">
-            <IconButton
-              label="Host Reward"
-              color="bg-orange-400"
-              onClick={() => nav("/reward")}
-              icon={<GiftIcon />}
-            />
-            <IconButton
-              label="Settings"
-              color="bg-blue-400"
-              onClick={() => nav("/settings")}
-              icon={<SettingsIcon />}
-            />
+          {/* ================= ACTION GRID ================= */}
+          <div className="grid grid-cols-2 gap-4 mt-6">
+            <ActionCard icon="👥" label="Members List" onClick={() => nav("/members")} />
+            <ActionCard icon="🧑‍💼" label="Agent List" onClick={() => nav("/agent")} />
+            <ActionCard icon="➕" label="Invite Agent" onClick={() => nav("/invite")} />
+            <ActionCard icon="📣" label="Invite BD" onClick={() => nav("/bd")} />
           </div>
-        </Card>
+
+        </div>
       </div>
     </div>
   );
 }
 
-/* ================= ICONS ================= */
+/* ================= COMPONENTS ================= */
 
-const WalletIcon = () => <span className="text-white text-xl">💰</span>;
-const WorkIcon = () => <span className="text-white text-xl">📊</span>;
-const UserIcon = () => <span className="text-white text-xl">👤</span>;
-const DocIcon = () => <span className="text-white text-xl">📄</span>;
-const HeartIcon = () => <span className="text-white text-xl">💌</span>;
-const GiftIcon = () => <span className="text-white text-xl">🎁</span>;
-const SettingsIcon = () => <span className="text-white text-xl">⚙️</span>;
+const StatCircle = ({ value, title }) => (
+  <div className="aspect-square w-full max-w-[150px] mx-auto bg-white/40 backdrop-blur-xl rounded-full flex flex-col items-center justify-center shadow-md">
+    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
+      {value}
+    </h2>
+    <p className="text-xs sm:text-sm text-gray-600">
+      {title}
+    </p>
+  </div>
+);
+
+const ActionCard = ({ icon, label, onClick }) => (
+  <div
+    onClick={onClick}
+    className="bg-white/50 backdrop-blur-xl rounded-2xl p-4 flex items-center gap-3 shadow-md cursor-pointer active:scale-95 transition"
+  >
+    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-500 text-white flex items-center justify-center text-lg sm:text-xl">
+      {icon}
+    </div>
+    <span className="font-medium text-sm sm:text-base text-gray-800">
+      {label}
+    </span>
+  </div>
+);
