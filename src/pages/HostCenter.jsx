@@ -10,7 +10,7 @@ export default function HostCenter() {
       <div className="w-full max-w-[430px] min-h-screen pb-8">
 
         {/* HEADER */}
-        <PageHeader title="Admin" />
+        <PageHeader title="Admin Center" />
 
         {/* CONTENT WRAPPER */}
         <div className="px-4">
