@@ -7,7 +7,7 @@ export default function HostCenter() {
 
   return (
     <div className="min-h-screen bg-white flex justify-center">
-      <div className="w-full max-w-[430px] min-h-screen pb-8">
+      <div className="w-full max-w-107.5 min-h-screen pb-8">
 
         {/* HEADER */}
         <PageHeader title="Admin Center" />
@@ -75,7 +75,7 @@ export default function HostCenter() {
 /* ================= COMPONENTS ================= */
 
 const StatCircle = ({ value, title }) => (
-  <div className="aspect-square w-full max-w-[150px] mx-auto bg-white/40 backdrop-blur-xl rounded-full flex flex-col items-center justify-center shadow-md">
+  <div className="aspect-square w-full max-w-37.5 mx-auto bg-white/40 backdrop-blur-xl rounded-full flex flex-col items-center justify-center shadow-md">
     <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
       {value}
     </h2>

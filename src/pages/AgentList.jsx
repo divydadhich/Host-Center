@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 
+/* ================= DATA ================= */
 
 const agents = [
   {
@@ -17,48 +18,130 @@ const agents = [
     income: 900,
     total: 20000,
   },
+  {
+    name: "Agent One",
+    id: "8001",
+    hosts: 40,
+    income: 2300,
+    total: 50000,
+  },
+  {
+    name: "Agent Two",
+    id: "8002",
+    hosts: 22,
+    income: 900,
+    total: 20000,
+  },
+  {
+    name: "Agent One",
+    id: "8001",
+    hosts: 40,
+    income: 2300,
+    total: 50000,
+  },
+  {
+    name: "Agent Two",
+    id: "8002",
+    hosts: 22,
+    income: 900,
+    total: 20000,
+  },
+  {
+    name: "Agent One",
+    id: "8001",
+    hosts: 40,
+    income: 2300,
+    total: 50000,
+  },
+  {
+    name: "Agent Two",
+    id: "8002",
+    hosts: 22,
+    income: 900,
+    total: 20000,
+  },
+  {
+    name: "Agent One",
+    id: "8001",
+    hosts: 40,
+    income: 2300,
+    total: 50000,
+  },
+  {
+    name: "Agent Two",
+    id: "8002",
+    hosts: 22,
+    income: 900,
+    total: 20000,
+  },
+  {
+    name: "Agent One",
+    id: "8001",
+    hosts: 40,
+    income: 2300,
+    total: 50000,
+  },
+  {
+    name: "Agent Two",
+    id: "8002",
+    hosts: 22,
+    income: 900,
+    total: 20000,
+  },
 ];
+
+/* ================= PAGE ================= */
 
 export default function AgentList() {
   const nav = useNavigate();
 
   return (
-    <div className="max-w-[430px] mx-auto min-h-screen bg-gradient-to-b from-[#6A4BA3] to-[#1B1A20] text-white">
+    <div className="max-w-[430px] mx-auto min-h-screen bg-white text-gray-900">
 
-     {/* HEADER */}
- <PageHeader title="Agent List" />
+      {/* HEADER */}
+      <PageHeader title="Agent List" />
 
       {/* LIST */}
-      <div className="mt-10 space-y-10 px-6">
+      <div className="px-4 mt-6 space-y-4">
         {agents.map((agent, index) => (
-          <div key={index} className="flex items-center justify-between">
-
-            {/* LEFT */}
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-gray-500/40" />
-
-              <div>
-                <p className="text-lg font-medium">
-                  {agent.name}
-                </p>
-                <p className="text-sm text-white/60">
-                  ID: {agent.id} • Hosts: {agent.hosts}
-                </p>
-              </div>
-            </div>
-
-            {/* RIGHT */}
-            <div className="text-right">
-              <p className="text-lg font-semibold">
-                ${agent.income}
-              </p>
-              <p className="text-sm text-white/50">
-                ${agent.total}
-              </p>
-            </div>
-          </div>
+          <AgentCard key={index} agent={agent} onClick={() => nav(`/agent/${agent.id}`)} />
         ))}
       </div>
     </div>
   );
 }
+
+/* ================= AGENT CARD ================= */
+
+const AgentCard = ({ agent, onClick }) => {
+  return (
+    <div
+      onClick={onClick}
+      className="border border-gray-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition"
+    >
+      {/* LEFT */}
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-semibold">
+          {agent.name.charAt(0)}
+        </div>
+
+        <div>
+          <p className="font-semibold text-sm">{agent.name}</p>
+          <p className="text-xs text-gray-500">
+            ID: {agent.id} • Hosts: {agent.hosts}
+          </p>
+        </div>
+      </div>
+
+      {/* RIGHT */}
+      <div className="text-right">
+        <p className="text-sm font-semibold text-green-600">
+          ${agent.income}
+        </p>
+        <p className="text-xs text-gray-400">
+          Total: ${agent.total}
+        </p>
+      </div>
+    </div>
+  );
+};

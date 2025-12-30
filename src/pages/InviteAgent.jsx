@@ -5,7 +5,7 @@ export default function Invite() {
   const [hostId, setHostId] = useState("");
 
   return (
-    <div className="max-w-[430px] mx-auto min-h-screen bg-indigo-100">
+    <div className="max-w-107.5 mx-auto min-h-screen bg-white">
       {/* HEADER */}
       <PageHeader title="Invite Members" />
 
