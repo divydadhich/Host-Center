@@ -18,7 +18,7 @@ const agents = [
     income: 900,
     total: 20000,
   },
-  {
+   {
     name: "Agent One",
     id: "8001",
     hosts: 40,
@@ -32,7 +32,7 @@ const agents = [
     income: 900,
     total: 20000,
   },
-  {
+   {
     name: "Agent One",
     id: "8001",
     hosts: 40,
@@ -46,7 +46,7 @@ const agents = [
     income: 900,
     total: 20000,
   },
-  {
+   {
     name: "Agent One",
     id: "8001",
     hosts: 40,
@@ -60,21 +60,7 @@ const agents = [
     income: 900,
     total: 20000,
   },
-  {
-    name: "Agent One",
-    id: "8001",
-    hosts: 40,
-    income: 2300,
-    total: 50000,
-  },
-  {
-    name: "Agent Two",
-    id: "8002",
-    hosts: 22,
-    income: 900,
-    total: 20000,
-  },
-  {
+   {
     name: "Agent One",
     id: "8001",
     hosts: 40,
@@ -93,8 +79,6 @@ const agents = [
 /* ================= PAGE ================= */
 
 export default function AgentList() {
-  const nav = useNavigate();
-
   return (
     <div className="max-w-[430px] mx-auto min-h-screen bg-white text-gray-900">
 
@@ -104,7 +88,7 @@ export default function AgentList() {
       {/* LIST */}
       <div className="px-4 mt-6 space-y-4">
         {agents.map((agent, index) => (
-          <AgentCard key={index} agent={agent} onClick={() => nav(`/agent/${agent.id}`)} />
+          <AgentCard key={index} agent={agent} />
         ))}
       </div>
     </div>
@@ -113,11 +97,15 @@ export default function AgentList() {
 
 /* ================= AGENT CARD ================= */
 
-const AgentCard = ({ agent, onClick }) => {
+const AgentCard = ({ agent }) => {
   return (
     <div
-      onClick={onClick}
-      className="border border-gray-200 rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition"
+      className="
+        border border-gray-200
+        rounded-2xl
+        p-4
+        flex items-center justify-between
+      "
     >
       {/* LEFT */}
       <div className="flex items-center gap-4">
